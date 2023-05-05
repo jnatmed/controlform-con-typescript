@@ -1,16 +1,16 @@
 import Toastify from 'toastify-js';
 import "toastify-js/src/toastify.css";
 export class Gestor{
-    $(idElement){
+    $(idElement : any){
         return document.querySelector(idElement);
     }
-    $create(nameElement){
+    $create(nameElement : any){
         return document.createElement(nameElement);
     }
-    consola(msj){
+    consola(msj : any){
         console.log(msj)
     }
-    mostrarCartel(cartel, duracion = 5000){
+    mostrarCartel(cartel : string, duracion : number = 5000){
         Toastify({
             text: cartel,
             duration: duracion,

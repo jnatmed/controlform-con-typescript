@@ -1,15 +1,15 @@
 import { Gestor } from "./gestor";
 
-let gestor = new Gestor()
-let input = gestor.$('#enviar')
-let paises = {"argentina" : 50, "uruguay" : 60, "chile" : 70}
-let datos = [];
+let gestor = new Gestor();
+let input : any = gestor.$('#enviar')
+let paises : any = {"argentina" : 50, "uruguay" : 60, "chile" : 70}
+let datos : any = [];
 
-input.addEventListener('click', e =>{
+input.addEventListener('click', function handleClick(e : any) {
   e.preventDefault();
   let formularioValido = true;
   ['#nombre','#apellido','#edad','#evento','#pais','#cantidad'].forEach(input => {
-      let campo = input.split('#')[1];
+      let campo : string = input.split('#')[1];
       if(gestor.$(input).value==""){
         gestor.mostrarCartel(`EL CAMPO "${(campo).toLocaleUpperCase()}" ESTA VACIO`)
         formularioValido = false;
@@ -32,7 +32,8 @@ input.addEventListener('click', e =>{
   if(formularioValido){
     gestor.mostrarCartel('FORMULARIO VALIDADO, felicitaciones')
     console.log(datos)
-    let listaEventos = JSON.parse(localStorage.getItem('eventos')) || [];
+    let auxEvn : any = localStorage.getItem('eventos');
+    let listaEventos : any = JSON.parse(auxEvn) || [];
     listaEventos.push({
       "nombre" : datos['nombre'],
       "apellido" : datos['apellido'],
